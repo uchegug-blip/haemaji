@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect Asia - 동남아와 대한민국을 연결합니다</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #ff9a56 0%, #ffad56 50%, #ffc947 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff6b35;
+            text-decoration: none;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .language-selector {
+            display: flex;
+            gap: 0.5rem;
+            background: #f8f9fa;
+            padding: 0.5rem;
+            border-radius: 25px;
+        }
+
+        .language-btn {
+            background: none;
+            border: none;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .language-btn.active {
+            background: #ff6b35;
+            color: white;
+        }
+
+        .language-btn:hover {
+            background: #ff6b35;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b35;
+        }
+
+        .login-btn {
+            background: #ff6b35;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #e55a2b;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ff9a56" stop-opacity="0.8"/><stop offset="100%" stop-color="%23ffc947" stop-opacity="0.3"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>') no-repeat center center;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+
+        .hero-multilang {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+        }
+
+        .cta-button:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .cta-button.secondary:hover {
+            background: white;
+            color: #ff6b35;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        /* News Section */
+        .news-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .news-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 1.5rem;
+            border-left: 4px solid #ff6b35;
+            transition: transform 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .news-card h4 {
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .news-meta {
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: 0.5rem;
+        }
+
+        /* Categories Grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-card h3 {
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .category-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Regional Communities */
+        .regions-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .region-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .region-tag {
+            background: #ff6b35;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .region-tag:hover {
+            background: #e55a2b;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .quick-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #333;
+            transition: background 0.3s;
+        }
+
+        .quick-link:hover {
+            background: #e9ecef;
+        }
+
+        .quick-link-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: #ff6b35;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #ff6b35;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #ff6b35;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #e55a2b;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #ff6b35;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #ff6b35;
+        }
+
+        .sns-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .sns-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #ff6b35;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .sns-link:hover {
+            background: #e55a2b;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .header-right {
+                gap: 0.5rem;
+            }
+
+            .language-selector {
+                padding: 0.3rem;
+            }
+
+            .language-btn {
+                padding: 0.2rem 0.5rem;
+                font-size: 0.7rem;
+                white-space: nowrap;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+                line-height: 1.2;
+                word-break: keep-all;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+                line-height: 1.4;
+                word-break: keep-all;
+                padding: 0 1rem;
+            }
+
+            .hero-multilang {
+                font-size: 0.95rem;
+                line-height: 1.4;
+                word-break: keep-all;
+                padding: 0 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+
+            .cta-button {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+                white-space: nowrap;
+                min-width: 200px;
+            }
+
+            .section h2 {
+                font-size: 1.8rem;
+                line-height: 1.3;
+                word-break: keep-all;
+                padding: 0 1rem;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+                margin: 0 1rem;
+            }
+
+            .news-grid,
+            .categories-grid,
+            .quick-links-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .region-tags {
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            .region-tag {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .category-card h3 {
+                font-size: 1rem;
+                word-break: keep-all;
+            }
+
+            .category-card p {
+                font-size: 0.85rem;
+                line-height: 1.4;
+            }
+
+            .news-card h4 {
+                font-size: 1rem;
+                word-break: keep-all;
+            }
+
+            .news-card p {
+                font-size: 0.85rem;
+                line-height: 1.4;
+            }
+
+            .quick-link {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .stat-label {
+                font-size: 1rem;
+            }
+        }
+
+        /* Extra small mobile devices */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-multilang {
+                font-size: 0.9rem;
+            }
+
+            .language-btn {
+                font-size: 0.65rem;
+                padding: 0.15rem 0.4rem;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+
+            .category-card,
+            .news-card {
+                padding: 1.2rem;
+            }
+
+            .contact-form {
+                padding: 1rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">🌏 Connect Asia</a>
+            <div class="header-right">
+                <div class="language-selector">
+                    <button class="language-btn active" onclick="changeLanguage('ko')">🇰🇷 한국어</button>
+                    <button class="language-btn" onclick="changeLanguage('vi')">🇻🇳 Tiếng Việt</button>
+                    <button class="language-btn" onclick="changeLanguage('en')">🇺🇸 English</button>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home" data-translate="nav-home">홈</a></li>
+                    <li><a href="#community" data-translate="nav-community">커뮤니티</a></li>
+                    <li><a href="#info" data-translate="nav-info">정보나눔</a></li>
+                    <li><a href="#events" data-translate="nav-events">행사</a></li>
+                </ul>
+                <a href="#login" class="login-btn" data-translate="nav-login">로그인</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in-up">Connect Asia</h1>
+                <p class="hero-subtitle fade-in-up" data-translate="hero-subtitle">동남아와 대한민국을 연결합니다</p>
+                <p class="hero-multilang fade-in-up" data-translate="hero-description">문화, 비즈니스, 교육의 새로운 연결고리를 만들어가세요</p>
+                <div class="hero-buttons fade-in-up">
+                    <a href="#community" class="cta-button" data-translate="cta-join">커뮤니티 가입하기</a>
+                    <a href="#info" class="cta-button secondary" data-translate="cta-explore">둘러보기</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Countries Section -->
+            <section id="countries" class="section">
+                <h2>동남아시아 국가별 정보</h2>
+                <div class="countries-grid">
+                    <div class="country-card fade-in-up">
+                        <div class="country-flag">🇹🇭</div>
+                        <h3>태국</h3>
+                        <p>동남아시아의 중심, 풍부한 문화와 관광지로 유명한 나라</p>
+                        <div class="country-stats">
+                            <div class="stat">
+                                <div class="stat-number">69.8M</div>
+                                <div class="stat-label">인구</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">513,120</div>
+                                <div class="stat-label">면적(km²)</div>
+                            </div>
+        </div>
+    </div>
+
+                    <div class="country-card fade-in-up">
+                        <div class="country-flag">🇻🇳</div>
+                        <h3>베트남</h3>
+                        <p>빠른 경제성장과 젊은 인구로 주목받는 신흥국</p>
+                        <div class="country-stats">
+                            <div class="stat">
+                                <div class="stat-number">97.3M</div>
+                                <div class="stat-label">인구</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">331,212</div>
+                                <div class="stat-label">면적(km²)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="country-card fade-in-up">
+                        <div class="country-flag">🇮🇩</div>
+                        <h3>인도네시아</h3>
+                        <p>세계 4위 인구대국, 17,000개 섬으로 이루어진 열대국가</p>
+                        <div class="country-stats">
+                            <div class="stat">
+                                <div class="stat-number">273.5M</div>
+                                <div class="stat-label">인구</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">1,904,569</div>
+                                <div class="stat-label">면적(km²)</div>
+                            </div>
+                        </div>
+        </div>
+
+                    <div class="country-card fade-in-up">
+                        <div class="country-flag">🇲🇾</div>
+                        <h3>말레이시아</h3>
+                        <p>다문화 사회, IT와 제조업이 발달한 선진국</p>
+                        <div class="country-stats">
+                            <div class="stat">
+                                <div class="stat-number">32.4M</div>
+                                <div class="stat-label">인구</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">330,803</div>
+                                <div class="stat-label">면적(km²)</div>
+                            </div>
+                        </div>
+        </div>
+        
+                    <div class="country-card fade-in-up">
+                        <div class="country-flag">🇸🇬</div>
+                        <h3>싱가포르</h3>
+                        <p>아시아의 금융허브, 혁신과 효율성의 상징</p>
+                        <div class="country-stats">
+                            <div class="stat">
+                                <div class="stat-number">5.9M</div>
+                                <div class="stat-label">인구</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">719</div>
+                                <div class="stat-label">면적(km²)</div>
+                            </div>
+        </div>
+    </div>
+
+                    <div class="country-card fade-in-up">
+                        <div class="country-flag">🇵🇭</div>
+                        <h3>필리핀</h3>
+                        <p>7,000개 섬의 나라, 영어 구사율이 높은 IT 인력 풍부</p>
+                        <div class="country-stats">
+                            <div class="stat">
+                                <div class="stat-number">109.6M</div>
+                                <div class="stat-label">인구</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">300,000</div>
+                                <div class="stat-label">면적(km²)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section id="features" class="section">
+                <h2>주요 기능</h2>
+                <div class="features-grid">
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">🌐</div>
+                        <h3>문화 교류</h3>
+                        <p>동남아시아와 한국의 문화를 소개하고 교류할 수 있는 플랫폼</p>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">💼</div>
+                        <h3>비즈니스 연결</h3>
+                        <p>양 지역 간의 비즈니스 기회와 파트너십을 연결하는 서비스</p>
+    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">🎓</div>
+                        <h3>교육 협력</h3>
+                        <p>교육 기관 간의 협력과 학생 교환 프로그램 지원</p>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">🗣️</div>
+                        <h3>언어 학습</h3>
+                        <p>한국어와 동남아시아 언어 학습을 위한 상호 지원 시스템</p>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">📱</div>
+                        <h3>디지털 플랫폼</h3>
+                        <p>온라인으로 쉽게 접근할 수 있는 통합 디지털 서비스</p>
+                    </div>
+
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">🤝</div>
+                        <h3>네트워킹</h3>
+                        <p>개인과 기관 간의 의미 있는 네트워크 구축 지원</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 style="text-align: center; color: #333; margin-bottom: 3rem;">문의하기</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">이름</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">이메일</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="country">관심 국가</label>
+                    <select id="country" name="country">
+                        <option value="">선택해주세요</option>
+                        <option value="thailand">태국</option>
+                        <option value="vietnam">베트남</option>
+                        <option value="indonesia">인도네시아</option>
+                        <option value="malaysia">말레이시아</option>
+                        <option value="singapore">싱가포르</option>
+                        <option value="philippines">필리핀</option>
+                        <option value="all">전체</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="interest">관심 분야</label>
+                    <select id="interest" name="interest">
+                        <option value="">선택해주세요</option>
+                        <option value="culture">문화 교류</option>
+                        <option value="business">비즈니스</option>
+                        <option value="education">교육</option>
+                        <option value="language">언어 학습</option>
+                        <option value="tourism">관광</option>
+                        <option value="other">기타</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">메시지</label>
+                    <textarea id="message" name="message" placeholder="문의하실 내용을 자유롭게 작성해주세요."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">문의 보내기</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Connect Asia</h3>
+                    <p>동남아시아와 대한민국을 연결하는 디지털 소통창구입니다.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>빠른 링크</h3>
+                    <p><a href="#home">홈</a></p>
+                    <p><a href="#countries">국가별 정보</a></p>
+                    <p><a href="#features">주요 기능</a></p>
+                    <p><a href="#contact">문의하기</a></p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>연락처</h3>
+                    <p>이메일: info@connectasia.kr</p>
+                    <p>전화: +82-2-1234-5678</p>
+                    <p>주소: 서울특별시 강남구</p>
+                </div>
+            </div>
+            <p style="color: #999; margin-top: 2rem;">&copy; 2024 Connect Asia. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('문의가 성공적으로 전송되었습니다. 빠른 시일 내에 연락드리겠습니다.');
+            this.reset();
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in-up elements
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Language translation system
+        const translations = {
+            ko: {
+                'nav-home': '홈',
+                'nav-community': '커뮤니티',
+                'nav-info': '정보나눔',
+                'nav-events': '행사',
+                'nav-login': '로그인',
+                'hero-subtitle': '동남아와 대한민국을 연결합니다',
+                'hero-description': '문화, 비즈니스, 교육의 새로운 연결고리를 만들어가세요',
+                'cta-join': '커뮤니티 가입하기',
+                'cta-explore': '둘러보기',
+                'news-title': '실시간 소식',
+                'categories-title': '인기 카테고리',
+                'regions-title': '지역별 커뮤니티',
+                'quicklinks-title': '유용한 정보',
+                'stats-members': '현재 회원',
+                'stats-posts': '오늘 게시글',
+                'contact-title': '문의하기'
+            },
+            vi: {
+                'nav-home': 'Trang chủ',
+                'nav-community': 'Cộng đồng',
+                'nav-info': 'Chia sẻ thông tin',
+                'nav-events': 'Sự kiện',
+                'nav-login': 'Đăng nhập',
+                'hero-subtitle': 'Kết nối Đông Nam Á và Hàn Quốc',
+                'hero-description': 'Tạo ra những cầu nối mới trong văn hóa, kinh doanh và giáo dục',
+                'cta-join': 'Tham gia cộng đồng',
+                'cta-explore': 'Khám phá',
+                'news-title': 'Tin tức thời gian thực',
+                'categories-title': 'Danh mục phổ biến',
+                'regions-title': 'Cộng đồng theo khu vực',
+                'quicklinks-title': 'Thông tin hữu ích',
+                'stats-members': 'Thành viên hiện tại',
+                'stats-posts': 'Bài viết hôm nay',
+                'contact-title': 'Liên hệ'
+            },
+            en: {
+                'nav-home': 'Home',
+                'nav-community': 'Community',
+                'nav-info': 'Information',
+                'nav-events': 'Events',
+                'nav-login': 'Login',
+                'hero-subtitle': 'Connecting Southeast Asia and Korea',
+                'hero-description': 'Creating new connections in culture, business, and education',
+                'cta-join': 'Join Community',
+                'cta-explore': 'Explore',
+                'news-title': 'Real-time News',
+                'categories-title': 'Popular Categories',
+                'regions-title': 'Regional Communities',
+                'quicklinks-title': 'Useful Information',
+                'stats-members': 'Current Members',
+                'stats-posts': 'Today\'s Posts',
+                'contact-title': 'Contact Us'
+            }
+        };
+
+        function changeLanguage(lang) {
+            // Update active language button
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Find and activate the clicked button
+            const clickedBtn = document.querySelector(`[onclick="changeLanguage('${lang}')"]`);
+            if (clickedBtn) {
+                clickedBtn.classList.add('active');
+            }
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+
+            // Store language preference
+            localStorage.setItem('selectedLanguage', lang);
+            
+            console.log('Language changed to:', lang); // Debug log
+        }
+
+        // Load saved language preference
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'ko';
+            if (savedLang !== 'ko') {
+                // Simulate click on the saved language button
+                const langButtons = document.querySelectorAll('.language-btn');
+                langButtons.forEach(btn => {
+                    if (btn.onclick.toString().includes(savedLang)) {
+                        btn.click();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
