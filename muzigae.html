@@ -99,3 +99,720 @@
             transition: all 0.2s;
             position: relative;
         }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 80%;
+            height: 3px;
+            background: #2d5a8c;
+            transition: transform 0.2s;
+        }
+
+        nav a:hover {
+            color: #2d5a8c;
+        }
+
+        nav a:hover::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        /* 히어로 섹션 */
+        .hero {
+            background: linear-gradient(135deg, rgba(30, 58, 95, 0.95) 0%, rgba(45, 90, 140, 0.92) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%232d5a8c" width="1200" height="600"/><path fill="%23ffffff" opacity="0.05" d="M0 300 L1200 400 L1200 600 L0 600 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.2em;
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.3;
+            letter-spacing: -1px;
+        }
+
+        .hero-description {
+            font-size: 1.3em;
+            margin-bottom: 48px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: 800;
+            color: #ffd700;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 18px 48px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 700;
+            transition: all 0.3s;
+            margin-top: 40px;
+            box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #e55a2b;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(255, 107, 53, 0.4);
+        }
+
+        /* 서비스 섹션 */
+        .services {
+            padding: 100px 0;
+            background: #fafbfc;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8em;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: #1e3a5f;
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 70px;
+            font-weight: 400;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-top: 4px solid;
+        }
+
+        .service-card:nth-child(1) { border-top-color: #3498db; }
+        .service-card:nth-child(2) { border-top-color: #e74c3c; }
+        .service-card:nth-child(3) { border-top-color: #27ae60; }
+        .service-card:nth-child(4) { border-top-color: #f39c12; }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3.5em;
+            margin-bottom: 24px;
+        }
+
+        .service-title {
+            font-size: 1.7em;
+            margin-bottom: 16px;
+            color: #1e3a5f;
+            font-weight: 700;
+        }
+
+        .service-description {
+            font-size: 1.05em;
+            color: #555;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            padding: 10px 0;
+            color: #444;
+            font-size: 0.98em;
+            line-height: 1.6;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+
+        .service-features li::before {
+            content: "✓";
+            color: #27ae60;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        /* 회사 소개 */
+        .about {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .about-text h3 {
+            font-size: 2.2em;
+            margin-bottom: 32px;
+            color: #1e3a5f;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            font-size: 1.15em;
+            color: #555;
+            margin-bottom: 24px;
+            line-height: 1.9;
+        }
+
+        .company-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .stat-card {
+            background: #fafbfc;
+            padding: 40px 24px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #e8eef3;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            border-color: #2d5a8c;
+            background: white;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .stat-card-number {
+            font-size: 2.5em;
+            font-weight: 800;
+            color: #2d5a8c;
+            margin-bottom: 8px;
+        }
+
+        .stat-card-label {
+            font-size: 1em;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* 연락처 섹션 */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 100%);
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            font-size: 1.15em;
+        }
+
+        .contact-icon {
+            font-size: 1.6em;
+            margin-right: 16px;
+            color: #ffd700;
+            width: 32px;
+        }
+
+        .business-hours {
+            background: rgba(255,255,255,0.12);
+            padding: 32px;
+            border-radius: 12px;
+            margin-top: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .business-hours h4 {
+            font-size: 1.5em;
+            margin-bottom: 24px;
+            color: #ffd700;
+            font-weight: 700;
+        }
+
+        .business-hours p {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+
+        .cta-box {
+            background: rgba(255,255,255,0.12);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .cta-box h3 {
+            font-size: 1.8em;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .cta-box p {
+            margin-bottom: 32px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .cta-button-white {
+            display: block;
+            background: white;
+            color: #2d5a8c;
+            padding: 18px 36px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 700;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .cta-button-white:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        /* 푸터 */
+        footer {
+            background-color: #0f1f2f;
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            padding: 48px 0;
+        }
+
+        footer p {
+            line-height: 1.8;
+        }
+
+        /* 반응형 */
+        @media (max-width: 968px) {
+            .header-content {
+                text-align: center;
+            }
+
+            .header-contact {
+                text-align: center;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero-stats {
+                gap: 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .section-title {
+                font-size: 2.2em;
+            }
+
+            .company-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .logo {
+                font-size: 2em;
+            }
+
+            .header-phone {
+                font-size: 1.5em;
+            }
+
+            nav a {
+                padding: 16px 20px;
+                font-size: 0.95em;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero-description {
+                font-size: 1.1em;
+            }
+
+            .stat-number {
+                font-size: 2.5em;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">🌈 무지개건설</div>
+                    <div class="tagline">신뢰와 품질로 함께하는 건설 파트너</div>
+                </div>
+                <div class="header-contact">
+                    <div class="header-phone">📞 054-734-0153</div>
+                    <div class="header-hours">평일 08:00-18:00 | 토요일 08:00-12:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 네비게이션 -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#home">홈</a></li>
+                <li><a href="#services">사업영역</a></li>
+                <li><a href="#about">회사소개</a></li>
+                <li><a href="#contact">문의하기</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 히어로 섹션 -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>전문성과 경험으로 완성하는 건설</h1>
+            <p class="hero-description">
+                무지개건설과 함께하시면 모든 건설 프로젝트가 성공적으로 완성됩니다.<br>
+                풍부한 경험과 전문 기술로 고객님의 요구를 충족시킵니다.
+            </p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">년간 경력</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">완료 프로젝트</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">전문 인력</div>
+                </div>
+            </div>
+
+            <a href="tel:054-734-0153" class="cta-button">무료 상담 신청 📞</a>
+        </div>
+    </section>
+
+    <!-- 서비스 섹션 -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">자사 사업영역</h2>
+            <p class="section-subtitle">다양한 건설 서비스로 고객의 모든 니드를 해결해드립니다</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🚛</div>
+                    <h3 class="service-title">마사토 판매</h3>
+                    <p class="service-description">
+                        양질의 마사토를 정확한 시기에 공급하여 건설현장의 안정적인 공정 관리를 지원합니다.
+                    </p>
+                    <ul class="service-features">
+                        <li>프리미엄 품질의 마사토 공급</li>
+                        <li>정확한 배송 일정 준수</li>
+                        <li>현장 맞춤형 품질 관리</li>
+                        <li>경쟁력 있는 가격 제공</li>
+                        <li>전문 운송팀 보유</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🗑️</div>
+                    <h3 class="service-title">각종 철거</h3>
+                    <p class="service-description">
+                        다양한 구조물의 안전하고 효율적인 철거 서비스를 제공합니다.
+                    </p>
+                    <ul class="service-features">
+                        <li>건물 및 구조물 철거</li>
+                        <li>안전한 철거 공법 적용</li>
+                        <li>철거 후 원상복구</li>
+                        <li>폐기물 처리 및 분쇄</li>
+                        <li>환경친화적 철거</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🌳</div>
+                    <h3 class="service-title">조경사업</h3>
+                    <p class="service-description">
+                        아름다운 자연 환경을 조성하여 삶의 질을 향상시킵니다.
+                    </p>
+                    <ul class="service-features">
+                        <li>정원 및 건물 조경 설계</li>
+                        <li>수목 심식 및 관리</li>
+                        <li>마당 및 잔디 시공</li>
+                        <li>조경 시설 설치</li>
+                        <li>정기 유지보수</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">👷</div>
+                    <h3 class="service-title">인력사업</h3>
+                    <p class="service-description">
+                        숙련된 인력을 공급하여 프로젝트의 효율성을 극대화합니다.
+                    </p>
+                    <ul class="service-features">
+                        <li>건설 현장 인력 파견</li>
+                        <li>전문 기술자 공급</li>
+                        <li>현장 관리 및 감독</li>
+                        <li>안전 작업환경 구축</li>
+                        <li>품질 관리 서비스</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 회사 소개 섹션 -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">회사 소개</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>신뢰할 수 있는 건설 파트너</h3>
+                    <p>
+                        무지개건설은 다년간의 건설업 경험을 바탕으로 다양한 분야에서 고객에게 최고의 서비스를 제공하고 있습니다. 
+                        마사토 판매부터 철거, 조경, 인력사업까지 포괄적인 건설 서비스를 제공하여 고객의 모든 요구사항을 한 번에 해결해드립니다.
+                    </p>
+                    <p>
+                        우리는 단순한 건설업체가 아닌, 고객과 함께 성장하는 파트너로서 최선을 다하고 있습니다. 
+                        혁신적인 기술과 풍부한 경험을 바탕으로 모든 프로젝트를 성공적으로 완수해왔습니다.
+                    </p>
+                </div>
+
+                <div class="company-stats">
+                    <div class="stat-card">
+                        <div class="stat-card-number">10+</div>
+                        <div class="stat-card-label">건설 경력</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-number">100+</div>
+                        <div class="stat-card-label">완료 프로젝트</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-number">20+</div>
+                        <div class="stat-card-label">전문 인력</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-number">100%</div>
+                        <div class="stat-card-label">안전사고율</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+덕읍 군청길 58(영덕 터미널), 2층</span>
+                    </div>
+
+                    <div class="business-hours">
+                        <h4>영업시간</h4>
+                        <p><strong>평일:</strong> 오전 8시 ~ 오후 6시</p>
+                        <p><strong>토요일:</strong> 오전 8시 ~ 오후 12시</p>
+                        <p><strong>일요일 및 공휴일:</strong> 휴무</p>
+                        <p><strong>응급상황:</strong> 24시간 상담 가능</p>
+                    </div>
+                </div>
+
+                <div class="cta-box">
+                    <h3>무료 견적 문의</h3>
+                    <p>
+                        프로젝트 규모에 상관없이 무료로 견적을 제공해드립니다. 
+                        전문가와 함께 최적의 솔루션을 찾아보세요.
+                    </p>
+                    <a href="tel:054-734-0153" class="cta-button-white">지금 문의하기 📞</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="container">
+            <p>
+                &copy; 2025 무지개건설. All rights reserved.<br>
+                경북 영덕군 영덕읍 군청길 58(영덕 터미널), 2층 | 사업자등록번호: XXX-XX-XXXXX
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // 부드러운 스크롤
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 스크롤 시 네비게이션 바 효과
+        let lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.scrollY;
+            
+            if (currentScroll > 100) {
+                nav.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+            } else {
+                nav.style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // 카운터 애니메이션
+        function animateCounter(element, target, suffix = '') {
+            let count = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                count += increment;
+                if (count >= target) {
+                    clearInterval(timer);
+                    element.textContent = target + suffix;
+                } else {
+                    element.textContent = Math.floor(count) + suffix;
+                }
+            }, 30);
+        }
+
+        // Intersection Observer로 화면에 나타날 때 카운터 시작
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                    entry.target.classList.add('animated');
+                    
+                    const counters = entry.target.querySelectorAll('.stat-number, .stat-card-number');
+                    counters.forEach(counter => {
+                        const text = counter.textContent;
+                        const hasPlus = text.includes('+');
+                        const hasPercent = text.includes('%');
+                        const number = parseInt(text.replace(/[^\d]/g, ''));
+                        
+                        let suffix = '';
+                        if (hasPlus) suffix = '+';
+                        if (hasPercent) suffix = '%';
+                        
+                        animateCounter(counter, number, suffix);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // 통계 섹션들 관찰
+        document.querySelectorAll('.hero-stats, .company-stats').forEach(section => {
+            observer.observe(section);
+        });
+
+        // 서비스 카드 호버 효과
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
