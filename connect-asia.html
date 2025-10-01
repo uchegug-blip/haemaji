@@ -147,6 +147,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .logo {
@@ -154,17 +155,21 @@
             font-weight: bold;
             color: #ff6b35;
             text-decoration: none;
+            flex-shrink: 0;
         }
 
         .header-right {
             display: flex;
             align-items: center;
             gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
         }
 
         .language-selector {
             display: flex;
             gap: 0.5rem;
+            flex-wrap: nowrap;
         }
 
         .language-btn {
@@ -175,6 +180,8 @@
             cursor: pointer;
             transition: all 0.3s;
             font-size: 0.85rem;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .language-btn.active {
@@ -493,7 +500,6 @@
             line-height: 1.6;
         }
 
-
         /* Contact Section */
         .contact-section {
             background: white;
@@ -593,8 +599,31 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            nav {
+                padding: 0.5rem 0;
+            }
+
+            .logo {
+                font-size: 1.1rem;
+                margin-right: 0.5rem;
+            }
+
             .nav-links {
                 display: none;
+            }
+
+            .header-right {
+                justify-content: flex-end;
+                gap: 0.5rem;
+            }
+
+            .language-selector {
+                gap: 0.3rem;
+            }
+
+            .language-btn {
+                padding: 0.3rem 0.5rem;
+                font-size: 0.75rem;
             }
 
             .hero h1 {
@@ -620,6 +649,22 @@
 
             .contact-form {
                 padding: 1.5rem;
+            }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            .language-btn {
+                padding: 0.25rem 0.4rem;
+                font-size: 0.7rem;
             }
         }
 
@@ -844,7 +889,6 @@
                     </div>
                 </div>
             </section>
-
         </div>
     </main>
 
