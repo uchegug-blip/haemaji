@@ -24,7 +24,6 @@
             padding: 0 24px;
         }
 
-        /* 헤더 */
         header {
             background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 100%);
             color: white;
@@ -72,7 +71,6 @@
             opacity: 0.9;
         }
 
-        /* 네비게이션 */
         nav {
             background-color: white;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -120,10 +118,9 @@
             transform: translateX(-50%) scaleX(1);
         }
 
-        /* 히어로 섹션 */
         .hero {
             background: linear-gradient(135deg, rgba(30, 58, 95, 0.95) 0%, rgba(45, 90, 140, 0.92) 100%),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%232d5a8c" width="1200" height="600"/><path fill="%23ffffff" opacity="0.05" d="M0 300 L1200 400 L1200 600 L0 600 Z"/></svg>');
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%232d5a8c" width="1200" height="600"/></svg>');
             background-size: cover;
             background-position: center;
             color: white;
@@ -193,7 +190,6 @@
             box-shadow: 0 12px 32px rgba(255, 107, 53, 0.4);
         }
 
-        /* 서비스 섹션 */
         .services {
             padding: 100px 0;
             background: #fafbfc;
@@ -284,7 +280,6 @@
             font-size: 1.2em;
         }
 
-        /* 회사 소개 */
         .about {
             padding: 100px 0;
             background: white;
@@ -349,7 +344,6 @@
             font-weight: 500;
         }
 
-        /* 연락처 섹션 */
         .contact {
             padding: 100px 0;
             background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8c 100%);
@@ -373,21 +367,21 @@
             display: flex;
             align-items: flex-start;
             margin-bottom: 24px;
-            font-size: 1.15em;
-            line-height: 1.6;
+            font-size: 1.1em;
+            line-height: 1.7;
         }
 
         .contact-icon {
             font-size: 1.6em;
             margin-right: 16px;
             color: #ffd700;
-            width: 32px;
+            min-width: 32px;
             flex-shrink: 0;
         }
 
         .contact-item span:last-child {
             flex: 1;
-            word-break: keep-all;
+            word-wrap: break-word;
         }
 
         .business-hours {
@@ -448,7 +442,6 @@
             box-shadow: 0 8px 24px rgba(0,0,0,0.2);
         }
 
-        /* 푸터 */
         footer {
             background-color: #0f1f2f;
             color: rgba(255,255,255,0.8);
@@ -457,12 +450,12 @@
         }
 
         footer p {
-            line-height: 1.8;
+            line-height: 2;
             word-break: keep-all;
+            max-width: 100%;
             padding: 0 20px;
         }
 
-        /* 반응형 */
         @media (max-width: 968px) {
             .header-content {
                 text-align: center;
@@ -535,7 +528,6 @@
     </style>
 </head>
 <body>
-    <!-- 헤더 -->
     <header>
         <div class="container">
             <div class="header-content">
@@ -551,7 +543,6 @@
         </div>
     </header>
 
-    <!-- 네비게이션 -->
     <nav>
         <div class="container">
             <ul>
@@ -563,7 +554,6 @@
         </div>
     </nav>
 
-    <!-- 히어로 섹션 -->
     <section id="home" class="hero">
         <div class="container">
             <h1>전문성과 경험으로 완성하는 건설</h1>
@@ -591,7 +581,6 @@
         </div>
     </section>
 
-    <!-- 서비스 섹션 -->
     <section id="services" class="services">
         <div class="container">
             <h2 class="section-title">자사 사업영역</h2>
@@ -661,7 +650,6 @@
         </div>
     </section>
 
-    <!-- 회사 소개 섹션 -->
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">회사 소개</h2>
@@ -699,7 +687,28 @@
             </div>
         </div>
     </section>
-덕읍 군청길 58(영덕 터미널), 2층</span>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white; margin-bottom: 60px;">문의 및 상담</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>연락처 정보</h3>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <span>대표전화: 054-734-0153</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <span>핸드폰: 010-9685-9345</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <span>이메일: eunju0750@naver.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span>주소: 경북 영덕군 영덕읍 군청길 58(영덕 터미널), 2층</span>
                     </div>
 
                     <div class="business-hours">
@@ -723,7 +732,6 @@
         </div>
     </section>
 
-    <!-- 푸터 -->
     <footer>
         <div class="container">
             <p>
@@ -734,7 +742,6 @@
     </footer>
 
     <script>
-        // 부드러운 스크롤
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -748,7 +755,6 @@
             });
         });
 
-        // 스크롤 시 네비게이션 바 효과
         let lastScroll = 0;
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
@@ -763,7 +769,6 @@
             lastScroll = currentScroll;
         });
 
-        // 카운터 애니메이션
         function animateCounter(element, target, suffix = '') {
             let count = 0;
             const increment = target / 50;
@@ -778,7 +783,6 @@
             }, 30);
         }
 
-        // Intersection Observer로 화면에 나타날 때 카운터 시작
         const observerOptions = {
             threshold: 0.5,
             rootMargin: '0px'
@@ -806,12 +810,10 @@
             });
         }, observerOptions);
 
-        // 통계 섹션들 관찰
         document.querySelectorAll('.hero-stats, .company-stats').forEach(section => {
             observer.observe(section);
         });
 
-        // 서비스 카드 호버 효과
         const serviceCards = document.querySelectorAll('.service-card');
         serviceCards.forEach(card => {
             card.addEventListener('mouseenter', function() {
